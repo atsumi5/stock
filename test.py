@@ -23,9 +23,21 @@ price = 10000 #初期株価
     #print(code, "の現在の株価は", price, "円です")
     #time.sleep(1) #1秒待機
 
-for i in range(10): #forループを使用して株価の変動をシミュレート(10回繰り返す)
-    price += random.randint(-100, 100) #株価の変動
-    print(code, "の現在の株価は", price, "円です") #
+for i in range(20): #forループを使用して株価の変動をシミュレート(20回繰り返す)
+    change = random.randint(-100, 100) #株価の変動
+    new_price = price + change
+    
+    if new_price > price:
+        print("Up", new_price, f"変動: {change:+}")
+    elif new_price < price:
+        print("Down", new_price, f"変動: {change:+}")
+    else:
+        print("Same", new_price, f"変動: {change:+}")
+    
+    price
     time.sleep(1) #1秒待機
+
+    #print("変動:", change) #if,elif,else文に組み込んでるので、変動の表示は不要
+
 
 print("監視終了")
